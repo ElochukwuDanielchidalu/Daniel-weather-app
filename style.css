@@ -1,141 +1,180 @@
-/* Reset some defaults */
+/* RESET DEFAULTS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY STYLE */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  background: linear-gradient(135deg, #6A93FF, #5563DE);
   color: #333;
-  height: 100vh; /* Ensures the body takes the full height of the screen */
+  height: 100vh;
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
+/* MAIN CONTAINER */
 .app-container {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
   width: 90%;
-  max-width: 400px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  padding: 28px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center; /* Center all text inside the container */
+  text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* TIME SECTION */
 .time-section {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 #clock {
-  font-size: 2.5rem;
-  color: #222;
+  font-size: 3rem;
+  color: #1b1b1b;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #date {
   font-size: 1rem;
   color: #555;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
+/* WEATHER TITLE */
 .weather-section h2 {
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 14px;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
 }
 
+/* INPUT AREA */
 .city-input {
   display: flex;
-  flex-direction: column; /* Stack input fields vertically */
-  align-items: center; /* Horizontally center the input fields */
-  margin-bottom: 15px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
   width: 100%;
 }
 
 .city-input input {
-  padding: 8px;
+  padding: 10px 12px;
   font-size: 1rem;
-  width: 90%; /* Make input fields responsive */
-  max-width: 350px; /* Set a max-width for input fields */
-  margin-bottom: 8px;
+  width: 90%;
+  max-width: 340px;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: all 0.3s;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
+.city-input input:focus {
+  border-color: #5563DE;
+  box-shadow: 0 0 0 3px rgba(85, 99, 222, 0.2);
+}
+
+/* BUTTON */
 .city-input button {
-  padding: 8px 12px;
+  padding: 10px;
   font-size: 1rem;
   border: none;
   background-color: #5563DE;
   color: white;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  width: 90%; /* Make button width same as input fields */
-  max-width: 350px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 90%;
+  max-width: 340px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .city-input button:hover {
   background-color: #3a4ab8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(58, 74, 184, 0.3);
 }
 
+/* WEATHER CARD */
 .weather-card {
-  background-color: #ffffff;
-  border-radius: 10px;
+  background: #ffffff;
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  width: 100%;
   opacity: 0;
   animation: fadeInUp 0.8s forwards;
-  width: 100%;
+  transform-origin: bottom;
 }
 
 .weather-header {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the city name and icon */
+  align-items: center;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
 .weather-header h3 {
   font-size: 1.2rem;
   color: #222;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .weather-header img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .weather-details {
-  margin-top: 10px;
+  margin-top: 8px;
   text-align: left;
+  color: #444;
 }
 
 .weather-details p {
   margin: 6px 0;
   font-size: 1rem;
-  color: #444;
+  display: flex;
+  justify-content: space-between;
 }
 
+.weather-details p:first-child {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #5563DE;
+}
+
+/* ERROR MESSAGE */
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+/* HIDDEN STATE */
 .hidden {
   display: none;
 }
 
-.error-message {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  width: 100%;
-}
-
-/* Center the whole app container */
+/* ANIMATIONS */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -144,5 +183,16 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
