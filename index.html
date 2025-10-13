@@ -1,59 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weather & Time App</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather & Time App (Country Search)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white min-h-screen flex items-center justify-center font-sans p-4">
 
-  <div class="app-container w-full max-w-md bg-gray-800/60 backdrop-blur-lg shadow-2xl rounded-2xl p-6 space-y-8 border border-gray-700">
-    
-    <div class="time-section text-center">
-      <h1 id="clock" class="text-5xl md:text-6xl font-bold tracking-widest text-emerald-400 drop-shadow-lg">--:--:--</h1>
-      <p id="date" class="text-gray-300 mt-2 text-lg">Loading date...</p>
+    <div class="app-container w-full max-w-md bg-gray-800/60 backdrop-blur-lg shadow-2xl rounded-2xl p-6 space-y-8 border border-gray-700">
+        
+        <div class="time-section text-center">
+            <h1 id="clock" class="text-5xl md:text-6xl font-bold tracking-widest text-emerald-400 drop-shadow-lg">--:--:--</h1>
+            <p id="date" class="text-gray-300 mt-2 text-lg">Loading date...</p>
+        </div>
+
+        <hr class="border-gray-700"/>
+
+        <div class="weather-section">
+            <h2 class="text-center text-2xl font-semibold text-emerald-400 mb-4">Country Weather (Placeholder)</h2>
+            
+            <div class="country-input flex flex-col space-y-3">
+                <input type="text" id="country-input" placeholder="Enter Country Name (e.g., Nigeria)" class="bg-gray-700/60 border border-gray-600 rounded-xl p-3 focus:ring-2 focus:ring-emerald-400 outline-none" required />
+                <button id="search-btn" class="mt-2 bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold py-3 rounded-xl">
+                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Get Weather
+                </button>
+            </div>
+
+            <div id="weather-card" class="weather-card hidden mt-6 bg-gray-700/60 rounded-xl p-5 border border-gray-600 shadow-lg">
+                <div class="weather-header flex items-center justify-between mb-4">
+                    <h3 id="city-name" class="text-xl font-semibold text-emerald-300"></h3>
+                    <img id="weather-icon" alt="weather icon" class="w-12 h-12" />
+                </div>
+                <div class="weather-details space-y-2 text-gray-200">
+                    <p class="text-4xl font-bold mb-2 flex justify-between items-center"><span id="temp"></span>°C <span class="text-lg font-normal text-gray-400">Temperature</span></p>
+                    <p class="capitalize text-emerald-400 font-medium"><i class="fa-solid fa-cloud mr-2"></i> Status: <span id="description"></span></p>
+                    <p><i class="fa-solid fa-droplet mr-2"></i> Humidity: <span id="humidity"></span>%</p>
+                    <p><i class="fa-solid fa-wind mr-2"></i> Wind: <span id="wind"></span> m/s</p>
+                </div>
+            </div>
+
+            <p id="error-message" class="error-message hidden text-red-400 text-center mt-4 font-medium"></p>
+        </div>
     </div>
 
-    <hr class="border-gray-700"/>
-
-    <div class="weather-section">
-      <h2 class="text-center text-2xl font-semibold text-emerald-400 mb-4">Weather Forecast</h2>
-      
-      <div class="city-input flex flex-col space-y-3">
-        <input type="text" id="city-input" placeholder="Enter city name (e.g., Tokyo)" class="bg-gray-700/60 border border-gray-600 rounded-xl p-3 focus:ring-2 focus:ring-emerald-400 outline-none" required />
-        <input type="text" id="state-input" placeholder="Enter state/region (e.g., Kanto)" class="bg-gray-700/60 border border-gray-600 rounded-xl p-3 focus:ring-2 focus:ring-emerald-400 outline-none" required />
-        <input type="text" id="country-input" placeholder="Enter country name (e.g., Japan)" class="bg-gray-700/60 border border-gray-600 rounded-xl p-3 focus:ring-2 focus:ring-emerald-400 outline-none" required />
-        <button id="search-btn" class="mt-2 bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold py-3 rounded-xl">
-            <i class="fa-solid fa-magnifying-glass mr-2"></i> Get Weather
-        </button>
-      </div>
-
-      <div id="weather-card" class="weather-card hidden mt-6 bg-gray-700/60 rounded-xl p-5 border border-gray-600 shadow-lg">
-        <div class="weather-header flex items-center justify-between mb-4">
-          <h3 id="city-name" class="text-xl font-semibold text-emerald-300"></h3>
-          <img id="weather-icon" alt="weather icon" class="w-12 h-12" />
-        </div>
-        <div class="weather-details space-y-2 text-gray-200">
-            <p class="text-4xl font-bold mb-2 flex justify-between items-center"><span id="temp"></span>°C <span class="text-lg font-normal text-gray-400">Temperature</span></p>
-            <p class="capitalize text-emerald-400 font-medium"><i class="fa-solid fa-cloud mr-2"></i> Status: <span id="description"></span></p>
-            <p><i class="fa-solid fa-droplet mr-2"></i> Humidity: <span id="humidity"></span>%</p>
-            <p><i class="fa-solid fa-wind mr-2"></i> Wind: <span id="wind"></span> m/s</p>
-        </div>
-      </div>
-
-      <p id="error-message" class="error-message hidden text-red-400 text-center mt-4 font-medium"></p>
-      
-      <div class="mt-8 text-center text-sm text-gray-400">
-        <p class="mb-2">Searchable Cities (City, Region, Country):</p>
-        <p class="text-xs italic">
-            **New York, NY, USA** | **London, England, UK** | **Tokyo, Kanto, Japan** | **Paris, Île-de-France, France** | **Lagos, Lagos, Nigeria** | **Dubai, Dubai, UAE** | **Sydney, NSW, Australia** | **Mumbai, Maharashtra, India** | **Toronto, Ontario, Canada** | **Berlin, Berlin, Germany** | **Seoul, Seoul, South Korea** | **Shanghai, Shanghai, China**
-        </p>
-      </div>
-    </div>
-  </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
