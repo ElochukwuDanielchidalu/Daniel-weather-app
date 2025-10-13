@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather & Time App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <div class="time-section">
+      <h1 id="clock">--:--:--</h1>
+      <p id="date">Loading date...</p>
+    </div>
+    <div class="weather-section">
+      <h2>Weather Forecast</h2>
+      <div class="city-input">
+        <input type="text" id="city-input" placeholder="Enter city name" required />
+        <input type="text" id="state-input" placeholder="Enter state name" required />
+        <input type="text" id="country-input" placeholder="Enter country name" required />
+        <button id="search-btn">Get Weather</button>
+      </div>
+      <div id="weather-card" class="weather-card hidden">
+        <div class="weather-header">
+          <h3 id="city-name"></h3>
+          <img id="weather-icon" alt="weather icon" />
+        </div>
+        <div class="weather-details">
+          <p><span id="temp"></span>°C</p>
+          <p id="description"></p>
+          <p>Humidity: <span id="humidity"></span>%</p>
+          <p>Wind: <span id="wind"></span> m/s</p>
+        </div>
+      </div>
+      <p id="error-message" class="error-message hidden"></p>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #74ABE2, #5563DE);
+  color: #333;
+  height: 100vh; /* Ensures the body takes the full height of the screen */
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.app-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Center all text inside the container */
+}
+
+.time-section {
+  margin-bottom: 20px;
+}
+
+#clock {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+#date {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.weather-section h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.city-input {
+  display: flex;
+  flex-direction: column; /* Stack input fields vertically */
+  align-items: center; /* Horizontally center the input fields */
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.city-input input {
+  padding: 8px;
+  font-size: 1rem;
+  width: 90%; /* Make input fields responsive */
+  max-width: 350px; /* Set a max-width for input fields */
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.city-input button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: none;
+  background-color: #5563DE;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 90%; /* Make button width same as input fields */
+  max-width: 350px;
+}
+
+.city-input button:hover {
+  background-color: #3a4ab8;
+}
+
+.weather-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards;
+  width: 100%;
+}
+
+.weather-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the city name and icon */
+  justify-content: center;
+}
+
+.weather-header h3 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.weather-header img {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-details {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.weather-details p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+/* Center the whole app container */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
